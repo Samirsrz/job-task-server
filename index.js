@@ -5,12 +5,13 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const { MongoClient, ServerApiVersion, ObjectId, CURSOR_FLAGS } = require('mongodb')
 const jwt = require('jsonwebtoken')
-const port = process.env.PORT || 2000
+const port = process.env.PORT || 3000
 const corsOptions = {
     origin: [
       'http://localhost:5173', 
       'http://localhost:5174',
-      'https://mughdomart.web.app'
+      'https://product-service-8a4f9.web.app',
+      'https://product-service-8a4f9.firebaseapp.com'
     ],
     credentials: true,
     optionSuccessStatus: 200,
@@ -44,8 +45,8 @@ const verifyToken = async (req, res, next) => {
 
 const uri = "mongodb+srv://productDB:tHfBcBVsa781KyqT@cluster0.2aarqjz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-console.log(process.env.DB_PASS)
-console.log(process.env.DB_USER)
+// console.log(process.env.DB_PASS)
+// console.log(process.env.DB_USER)
 
 const client = new MongoClient(uri, {
   serverApi: {
